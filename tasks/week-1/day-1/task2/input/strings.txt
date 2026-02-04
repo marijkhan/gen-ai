@@ -1,0 +1,30 @@
+def hello(): print("Hello, World!")
+for i in range(10): print(i**2)
+SELECT * FROM users WHERE age > 18 ORDER BY name;
+const arr = [1,2,3].map(x => x * 2).filter(x => x > 2);
+import numpy as np; arr = np.array([1,2,3]); print(arr.mean())
+<div class="container"><p style="color:red">Error</p></div>
+یہ ایک Testtext ہے جو Urdu und Deutsch mischt
+Guten Morgen, آپ کیسے ہیں؟
+Die Universität میں پڑھنا sehr schön ہے
+میں Berlin میں wohne اور Kebab کھاتا ہوں
+Wetter heute: آج موسم sehr gut ہے
+Entschuldigung, مجھے Hilfe چاہیے bitte
+🎉🎊🥳 Happy Birthday! 🎂🎁🎈
+I ❤️ programming 💻👨‍💻🚀
+🏠🏡🏢🏣🏤🏥🏦🏧🏨🏩🏪🏫
+👨‍👩‍👧‍👦 Family dinner 🍕🍔🌮🍣🍜
+⚠️🔴🟡🟢✅❌⭕💯🔥💥
+🇵🇰🇩🇪🇺🇸🇬🇧🇫🇷🇯🇵🇨🇳🇮🇳🇧🇷🇦🇺
+https://www.example.com/search?q=artificial+intelligence&lang=en&page=1&sort=relevance&filter=recent&category=technology&subcategory=machine-learning
+https://api.github.com/repos/anthropics/claude-code/pulls/123/comments?per_page=100&page=2&sort=created&direction=desc
+https://stackoverflow.com/questions/12345678/how-to-parse-json-in-python-with-special-characters-and-unicode-handling?answertab=votes#tab-top
+https://docs.google.com/spreadsheets/d/1aBcDeFgHiJkLmNoPqRsTuVwXyZ0123456789/edit#gid=0&range=A1:Z100
+https://www.amazon.com/dp/B09V3KXJPB/ref=cm_sw_r_cp_api_i_dl_ABCDEF?encoding=UTF8&psc=1&tag=example-20
+https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyA1B2C3D4E5F6G7H8I9J0
+{"name": "Ahmed", "age": 25, "city": "Berlin"}
+{"users": [{"id": 1, "name": "Ali"}, {"id": 2, "name": "Sara"}], "total": 2}
+{"error": {"code": 404, "message": "Not Found", "details": {"path": "/api/v1/users/999"}}}
+{"config": {"model": "gpt-4", "temperature": 0.7, "max_tokens": 1024, "top_p": 0.95}}
+{"translations": {"en": "Hello", "ur": "ہیلو", "de": "Hallo", "ar": "مرحبا"}}
+{"matrix": [[1,0,0],[0,1,0],[0,0,1]], "determinant": 1, "type": "identity"}

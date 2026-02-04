@@ -1,0 +1,93 @@
+======================================================================
+                    LLM BEHAVIOR CHEATSHEET
+              What Changes Output and Why
+======================================================================
+
+----------------------------------------------------------------------
+1. PARAMETERS THAT CONTROL OUTPUT
+----------------------------------------------------------------------
+
+Parameter       | What It Does                                          | Effect on Output
+----------------|-------------------------------------------------------|--------------------------------------------------
+Temperature     | Scales logit distribution before sampling              | Lower = more deterministic, Higher = more random
+Top-k           | Limits sampling to top k tokens                       | Lower k = safer/predictable, Higher k = more variety
+Top-p (nucleus) | Limits sampling to smallest set with cumulative prob>=p| Lower p = fewer choices, Higher p = more diversity
+Seed            | Initializes RNG to fixed state                        | Same seed + same params = (mostly) same output
+Max tokens      | Caps output length                                    | Truncates response if limit reached
+System prompt   | Sets model behavior/persona                           | Shapes tone, format, constraints
+Model           | Different architecture/training data                  | Different knowledge, capabilities, style
+
+----------------------------------------------------------------------
+2. TEMPERATURE QUICK REFERENCE
+----------------------------------------------------------------------
+
+temp=0       Greedy decoding. No randomness. Always picks highest probability token.
+temp=0-0.5   Conservative. Minor phrasing variation, facts stay consistent.
+temp=0.5-1   Balanced. More creative phrasing, occasional fact variance.
+temp=1+      High creativity. Unpredictable, may hallucinate more.
+
+----------------------------------------------------------------------
+3. SAMPLING PIPELINE (Order of Operations)
+----------------------------------------------------------------------
+
+  Model outputs logits (raw scores for ~50k tokens)
+      |
+      v
+  Apply temperature:  logits / temperature
+      |
+      v
+  Apply softmax:  convert to probabilities
+      |
+      v
+  Apply top-k:  keep only top k tokens
+      |
+      v
+  Apply top-p:  keep smallest set with cumulative prob >= p
+      |
+      v
+  Sample using RNG:  randomly pick from remaining tokens
+      |
+      v
+  Output token
+
+----------------------------------------------------------------------
+4. WHY IDENTICAL INPUTS GIVE DIFFERENT OUTPUTS
+----------------------------------------------------------------------
+
+Cause                     | When It Happens
+--------------------------|----------------------------------------------------------
+Temperature > 0           | RNG samples from distribution - expected variance
+Floating-point precision  | Even at temp=0, logit computation can vary slightly
+GPU parallelism           | Non-deterministic execution order changes FP results
+Infrastructure routing    | Different hardware replicas may compute differently
+No fixed seed             | RNG starts at different state each time
+
+----------------------------------------------------------------------
+5. WHY FACTUAL ANSWERS CAN VARY
+----------------------------------------------------------------------
+
+Cause                     | Explanation
+--------------------------|----------------------------------------------------------
+Training data conflicts   | Multiple sources cite different values
+Token-level generation    | Model predicts digit-by-digit, not "the number" as a whole
+No fact verification      | Model generates what *sounds* plausible, not what *is* correct
+LLMs are not databases    | They are statistical text completion engines
+
+----------------------------------------------------------------------
+6. WHAT DOES NOT CHANGE OUTPUT
+----------------------------------------------------------------------
+
+Factor                    | Why
+--------------------------|----------------------------------------------------------
+Asking "are you sure?"    | Model has no memory of being wrong
+Repeating the same prompt | Without seed, randomness still applies
+User identity             | Model doesn't personalize (unless in system prompt)
+
+----------------------------------------------------------------------
+7. RULES OF THUMB
+----------------------------------------------------------------------
+
+- Need consistency?      temperature=0 + seed=42
+- Need creativity?       temperature=0.7-1.0, higher top-p
+- Need facts?            Don't trust LLM alone - use RAG or verification
+- Need reproducibility?  Fix seed, temperature, top_p, top_k, and model

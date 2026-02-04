@@ -1,0 +1,29 @@
+Guten Morgen
+آپ کیسے ہیں
+Guten Morgen, آپ کیسے ہیں؟
+Die Universität میں پڑھنا sehr schön ہے
+Entschuldigung, مجھے Hilfe چاہیے bitte
+میں Berlin میں wohne اور Kebab کھاتا ہوں
+😀🔥❤️
+🇵🇰
+🇩🇪
+🇵🇰🇩🇪🇺🇸🇬🇧🇫🇷🇯🇵🇨🇳🇮🇳🇧🇷🇦🇺
+👨‍👩‍👧‍👦
+👨‍💻
+{"name": "Ahmed", "age": 25, "city": "Berlin"}
+name Ahmed age 25 city Berlin
+{"users": [{"id": 1, "name": "Ali"}, {"id": 2, "name": "Sara"}], "total": 2}
+users id 1 name Ali id 2 name Sara total 2
+{"config": {"model": "gpt-4", "temperature": 0.7, "max_tokens": 1024, "top_p": 0.95}}
+model gpt-4 temperature 0.7 max_tokens 1024 top_p 0.95
+The quick brown fox jumps over the lazy dog near the river bank on a warm summer afternoon
+https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyA1B2C3D4E5F6G7H8I9J0
+https://www.example.com/search?q=artificial+intelligence&lang=en&page=1&sort=relevance&filter=recent&category=technology&subcategory=machine-learning
+https://api.github.com/repos/anthropics/claude-code/pulls/123/comments?per_page=100&page=2&sort=created&direction=desc
+Hello how are you today
+ہیلو آپ کیسے ہیں آج
+Hallo wie geht es Ihnen heute
+for i in range(10): print(i)
+for i in range(10): print(i)
+The capital of Pakistan is Islamabad and it is a beautiful city with pleasant weather
+پاکستان کا دارالحکومت اسلام آباد ہے اور یہ ایک خوبصورت شہر ہے جس کا موسم خوشگوار ہے
