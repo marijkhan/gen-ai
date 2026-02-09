@@ -1,0 +1,69 @@
+## **Summary of Wi-Fi and Networking Events API Documentation**
+
+### **Event Types and Purpose**
+
+The API documents the following Wi-Fi and networking events:
+
+1. **Wi-Fi Scan Complete**: Indicates the completion of a Wi-Fi scan.
+2. **IP Disconnection**: Notifies of an IP disconnection event.
+3. **IP Failed Connection**: Reports a failed IP connection attempt.
+4. **IPv4 Address Established**: Indicates a successful IPv4 address assignment.
+5. **IPv6 Address Established**: Indicates a successful IPv6 address assignment.
+6. **OneX Authentication**: Reports the outcome of a OneX authentication attempt.
+7. **Suboptimal Wi-Fi Driver Property**: Identifies suboptimal Wi-Fi driver settings.
+8. **Wi-Fi Bad Coverage**: Reports poor Wi-Fi coverage conditions.
+9. **Wi-Fi Channel Switch**: Notifies of a channel switch event.
+10. **Wi-Fi Co-channel Interference**: Detects co-channel interference.
+11. **Wi-Fi Connection Short Period Statistics**: Provides short-term Wi-Fi connection statistics.
+12. **Connections Topology Information**: Offers insights into network topology and connection details.
+13. **Wi-Fi Missed Beacons**: Reports missed beacon frames.
+14. **Wi-Fi Driver Properties Indication**: Provides Wi-Fi driver property information.
+15. **Wi-Fi No Coverage**: Indicates a lack of Wi-Fi coverage.
+16. **Wi-Fi Successful Connection**: Confirms a successful Wi-Fi connection.
+17. **Wi-Fi Failed Connection**: Reports a failed Wi-Fi connection attempt.
+18. **Wi-Fi Toggle State Indication**: Notifies of a Wi-Fi adapter state change (e.g., enabled/disabled).
+19. **Wi-Fi Disconnected Antenna**: Detects a disconnected or malfunctioning antenna.
+20. **Wi-Fi Device Short Period Statistics**: Provides short-term device-level Wi-Fi statistics.
+21. **Wi-Fi Roaming Report**: Details Wi-Fi roaming events.
+22. **Wi-Fi Connection Statistics**: Offers comprehensive Wi-Fi connection statistics.
+23. **Wi-Fi Disconnection**: Reports a Wi-Fi disconnection event.
+24. **Wi-Fi Technology Gap**: Identifies technology gaps between the device and access point.
+25. **Wi-Fi Driver Availability Indication**: Notifies of available Wi-Fi driver updates.
+26. **WLAN Service State Change Indication**: Reports changes in the WLAN service state.
+27. **Wi-Fi Security Indication**: Provides Wi-Fi security-related information and risks.
+28. **Wi-Fi Device Statistics**: Offers long-term device-level Wi-Fi statistics.
+
+### **Common Fields Across All Events**
+
+- **device_id**: Unique identifier of the device.
+- **time**: Timestamp of the event in ISO 8601 format.
+- **make**: Device manufacturer.
+- **device_name**: Name of the device.
+- **owner_id**: Identifier of the device owner.
+- **event**: Detailed event information:
+  - **ID**: Unique event identifier.
+  - **analysisName**: Name of the event type.
+  - **deviceMac**: MAC address of the device.
+  - **epochTime**: Timestamp in epoch format.
+  - **eventDate**: Event timestamp in ISO 8601 format.
+  - **headerValue**: Event-specific details (varies by event type).
+  - **severity**: Severity level of the event (e.g., "INFO").
+  - **ssid**: SSID of the connected Wi-Fi network.
+  - **timeStamp**: Event timestamp (duplicate of eventDate).
+  - **wifiMac**: MAC address of the Wi-Fi interface.
+
+### **Key Structure Patterns**
+
+- **MAC Address Fields**: Many events include MAC addresses, e.g., **STA MAC Address**, **deviceMac**, **wifiMac**.
+- **Wi-Fi Network Information**: SSID, BSSID, channel, and band are common in events related to Wi-Fi connections.
+- **IP Information**: IP address, subnet mask, gateway, and DNS servers are included in IP-related events.
+- **Timestamp and Epoch Time**: Events use both ISO 8601 and epoch time formats for timestamps.
+
+### **Important Field Types and Values**
+
+- **Severity Levels**: Typically "INFO", indicating informational events.
+- **Network Adapter Types**: Can be "Unknown Adapter", "Ethernet", "Loopback", "Wi-Fi", "GigabitEthernet", or "Tunnel".
+- **Wi-Fi Standards**: e.g., "Wi-Fi 5 (802.11ac)", "Wi-Fi 6 (802.11ax)".
+- **Security Protocols**: e.g., "WPA2-Personal", "WPA3-Enterprise", "Open".
+
+This summary provides a comprehensive overview of the API events, common fields, and key structure patterns, serving as a reference for understanding and working with the Wi-Fi and networking events.

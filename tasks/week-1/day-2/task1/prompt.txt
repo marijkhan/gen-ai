@@ -1,0 +1,1599 @@
+This document provides a structured reference for various Wi-Fi and Networking events logged. Each event includes detailed metadata, schema structure, and a sample JSON representation to illustrate its format.
+
+Events
+Wi-Fi Scan Complete
+IP Disconnection
+IP Failed Connection
+IPv4 Address Established
+IPv6 Address Established
+OneX Authentication
+Suboptimal Wi-Fi Driver Property
+Wi-Fi Bad Coverage
+Wi-Fi Channel Switch
+Wi-Fi Co-channel Interference
+Wi-Fi Connection Short Period Statistics
+Connections Topology Information
+Wi-Fi Missed Beacons
+Wi-Fi Driver Properties Indication
+Wi-Fi No Coverage
+Wi-Fi Successful Connection
+Wi-Fi Failed Connection
+Wi-Fi Toggle State Indication
+Wi-Fi Disconnected Antenna
+Wi-Fi Device Short Period Statistics
+Wi-Fi Roaming Report
+Wi-Fi Connection Statistics
+Wi-Fi Disconnection
+Wi-Fi Technology Gap
+Wi-Fi Driver Availability Indication
+WLAN Service State Change Indication
+Wi-Fi Security Indication
+Wi-Fi Device Statistics
+
+
+
+
+
+
+
+Structure for "IP Failed Connection" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+Network Adapter Type (string) → Can be "Unknown Adapter", "Ethernet", "Loopback", "Wi-Fi", "GigabitEthernet", or "Tunnel".
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T12:10:00.4567890Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 1876543210,
+        "analysisName": "IP Failed Connection",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741349400456,
+        "eventDate": "2025-03-07T12:10:00.4567890Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "Network Adapter Type": "Wi-Fi"
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T12:10:00.4567890Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+Structure for "IPv4 Address Established" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+Network Adapter Type (string) → Can be "Unknown Adapter", "Ethernet", "Loopback", "Wi-Fi", "GigabitEthernet", or "Tunnel".
+IPv4 Address (string or null) → The device's assigned IP address.
+Subnet Mask (string) → The subnet mask assigned to the device.
+Gateway IP Address (string or null) → The default gateway for the device.
+DHCP Server (string or null) → The DHCP server that assigned the IP.
+DNS Server IP Address (array of strings or null) → List of DNS server IPs.
+DHCP Lease Duration (integer) → The lease duration in seconds.
+DHCP Lease Timestamp (integer) → The timestamp when the lease was obtained.
+DHCP Retrieval Duration (integer) → The time taken to retrieve DHCP configuration.
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T12:20:00.7890123Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 1234567890,
+        "analysisName": "IPv4 Address Established",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741349800789,
+        "eventDate": "2025-03-07T12:20:00.7890123Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "Network Adapter Type": "Wi-Fi",
+            "IPv4 Address": "192.168.1.100",
+            "Subnet Mask": "255.255.255.0",
+            "Gateway IP Address": "192.168.1.1",
+            "DHCP Server": "192.168.1.254",
+            "DNS Server IP Address": ["8.8.8.8", "8.8.4.4"],
+            "DHCP Lease Duration": 86400,
+            "DHCP Lease Timestamp": 1741349799999,
+            "DHCP Retrieval Duration": 500
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T12:20:00.7890123Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "Suboptimal Wi-Fi Driver Property" contains:
+Device MAC Address (string) → The MAC address of the wireless card.
+Property Name (string) → The name of the driver property being analyzed.
+Property Actual Value (string) → The current value of the property.
+Property Recommended Value (string) → The recommended value for optimal performance.
+Property Insight Information (string) → Additional insight regarding the driver property.
+Wi-Fi Driver Version (string) → The current release version of the Wi-Fi driver.
+Wi-Fi Device ID (integer) → The PCIe Device Identifier for the Wi-Fi function.
+Wi-Fi Subsystem ID (integer) → The PCIe Subsystem Identifier for the Wi-Fi function.
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T12:50:00.9123456Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 4567890123,
+        "analysisName": "Suboptimal Wi-Fi Driver Property",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741351000912,
+        "eventDate": "2025-03-07T12:50:00.9123456Z",
+        "headerValue": {
+            "Device MAC Address": "34:56:78:9A:BC:DE",
+            "Property Name": "Roaming Aggressiveness",
+            "Property Actual Value": "Medium",
+            "Property Recommended Value": "High",
+            "Property Insight Information": "Setting Roaming Aggressiveness to 'High' may improve connectivity in weak signal areas.",
+            "Wi-Fi Driver Version": "22.190.0.4",
+            "Wi-Fi Device ID": 12345,
+            "Wi-Fi Subsystem ID": 67890
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T12:50:00.9123456Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "IPv6 Address Established" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+Network Adapter Type (string) → Can be "Unknown Adapter", "Ethernet", "Loopback", "Wi-Fi", "GigabitEthernet", or "Tunnel".
+IPv6 Address (string or null) → The device's assigned IPv6 address.
+Prefix Length (integer) → The subnet prefix length (equivalent to a subnet mask in IPv4).
+Is Local Address (boolean) → Indicates if the IP address is a locally created OS address.
+Gateway IP Address (string or null) → The default gateway for the device.
+DHCP Server (string or null) → The DHCP server that assigned the IP.
+DNS Server IP Address (array of strings or null) → List of DNS server IPs.
+DHCP Lease Duration (integer) → The lease duration in seconds.
+DHCP Lease Timestamp (integer) → The timestamp when the lease was obtained.
+DHCP Retrieval Duration (integer) → The time taken to retrieve DHCP configuration.
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T12:30:00.8901234Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 2345678901,
+        "analysisName": "IPv6 Address Established",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741350200890,
+        "eventDate": "2025-03-07T12:30:00.8901234Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "Network Adapter Type": "Wi-Fi",
+            "IPv6 Address": "2001:db8::ff00:42:8329",
+            "Prefix Length": 64,
+            "Is Local Address": false,
+            "Gateway IP Address": "2001:db8::1",
+            "DHCP Server": "2001:db8::2",
+            "DNS Server IP Address": ["2001:4860:4860::8888", "2001:4860:4860::8844"],
+            "DHCP Lease Duration": 86400,
+            "DHCP Lease Timestamp": 1741350199999,
+            "DHCP Retrieval Duration": 500
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T12:30:00.8901234Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "OneX Authentication" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+MLD MAC Address (string or null) → Multi-Link Device MAC address of the AP.
+OneX Handshake Status (string) → Can be "Success" or "Failure", indicating whether the authentication was successful.
+OneX Handshake Duration (integer) → The duration of the authentication handshake in milliseconds.
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T12:40:00.9012345Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 3456789012,
+        "analysisName": "OneX Authentication",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741350600901,
+        "eventDate": "2025-03-07T12:40:00.9012345Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "MLD MAC Address": "56:78:9A:BC:DE:F0",
+            "OneX Handshake Status": "Success",
+            "OneX Handshake Duration": 120
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T12:40:00.9012345Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+Structure for "Wi-Fi Bad Coverage" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+SSID (string) → The name of the connected Wi-Fi network.
+BSSID (string) → The MAC address of the access point.
+RSSI (integer) → Received Signal Strength Indicator in dBm.
+Channel (integer) → The Wi-Fi channel in use.
+Band (string) → The frequency band of the connection, e.g., "2.4GHz", "5GHz", "6GHz".
+Link Speed (integer) → The current link speed in Mbps.
+Is Roaming (boolean) → Indicates if the device is roaming between APs.
+Disconnection Count (integer) → The number of disconnections from this Wi-Fi network.
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T13:30:00.9567890Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 8901234567,
+        "analysisName": "Wi-Fi Bad Coverage",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741352600956,
+        "eventDate": "2025-03-07T13:30:00.9567890Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "SSID": "Office_WiFi",
+            "BSSID": "12:34:56:78:9A:BC",
+            "RSSI": -85,
+            "Channel": 36,
+            "Band": "5GHz",
+            "Link Speed": 72,
+            "Is Roaming": true,
+            "Disconnection Count": 3
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T13:30:00.9567890Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "Wi-Fi Channel Switch" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+SSID (string) → The name of the connected Wi-Fi network.
+BSSID (string) → The MAC address of the access point.
+Previous Channel (integer) → The Wi-Fi channel before the switch.
+Previous Band (string) → The frequency band before the switch, e.g., "2.4GHz", "5GHz", "6GHz".
+New Channel (integer) → The new Wi-Fi channel after the switch.
+New Band (string) → The frequency band after the switch.
+Reason (string) → The reason for the channel switch, e.g., "Interference", "AP Optimization", "Regulatory Compliance".
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T13:40:00.9678901Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9012345678,
+        "analysisName": "Wi-Fi Channel Switch",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741353000967,
+        "eventDate": "2025-03-07T13:40:00.9678901Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "SSID": "Office_WiFi",
+            "BSSID": "12:34:56:78:9A:BC",
+            "Previous Channel": 36,
+            "Previous Band": "5GHz",
+            "New Channel": 149,
+            "New Band": "5GHz",
+            "Reason": "Interference"
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T13:40:00.9678901Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "Wi-Fi Co-channel Interference" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+SSID (string) → The name of the connected Wi-Fi network.
+BSSID (string) → The MAC address of the access point.
+Channel (integer) → The Wi-Fi channel in use.
+Band (string) → The frequency band of the connection, e.g., "2.4GHz", "5GHz", "6GHz".
+Interfering BSSID (string) → The MAC address of the interfering access point.
+Interfering SSID (string) → The SSID of the interfering network.
+Interfering RSSI (integer) → Received Signal Strength Indicator (RSSI) of the interfering network in dBm.
+Interfering Channel (integer) → The Wi-Fi channel of the interfering network.
+Interfering Band (string) → The frequency band of the interfering network.
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T13:50:00.9789012Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9123456789,
+        "analysisName": "Wi-Fi Co-channel Interference",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741353400978,
+        "eventDate": "2025-03-07T13:50:00.9789012Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "SSID": "Office_WiFi",
+            "BSSID": "12:34:56:78:9A:BC",
+            "Channel": 36,
+            "Band": "5GHz",
+            "Interfering BSSID": "98:76:54:32:10:FE",
+            "Interfering SSID": "Guest_WiFi",
+            "Interfering RSSI": -75,
+            "Interfering Channel": 36,
+            "Interfering Band": "5GHz"
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T13:50:00.9789012Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "Wi-Fi Connection Short Period Statistics" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+SSID (string) → The name of the connected Wi-Fi network.
+BSSID (string) → The MAC address of the access point.
+Connection Duration (integer) → The duration of the connection in seconds.
+Total Disconnections (integer) → The total number of disconnections during this period.
+Average RSSI (integer) → The average received signal strength indicator (RSSI) in dBm.
+Minimum RSSI (integer) → The minimum RSSI recorded during the connection period.
+Maximum RSSI (integer) → The maximum RSSI recorded during the connection period.
+Channel Changes (integer) → The number of channel switches during the connection period.
+Roaming Events (integer) → The number of roaming events between access points.
+Packet Loss Percentage (float) → The percentage of packet loss detected during the connection period.
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T14:00:00.9890123Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9234567890,
+        "analysisName": "Wi-Fi Connection Short Period Statistics",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741353800989,
+        "eventDate": "2025-03-07T14:00:00.9890123Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "SSID": "Office_WiFi",
+            "BSSID": "12:34:56:78:9A:BC",
+            "Connection Duration": 300,
+            "Total Disconnections": 2,
+            "Average RSSI": -65,
+            "Minimum RSSI": -80,
+            "Maximum RSSI": -50,
+            "Channel Changes": 1,
+            "Roaming Events": 2,
+            "Packet Loss Percentage": 1.2
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T14:00:00.9890123Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "Connections Topology Information" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+SSID (string) → The name of the connected Wi-Fi network.
+BSSID (string) → The MAC address of the access point.
+Network Adapter Type (string) → Can be "Unknown Adapter", "Ethernet", "Loopback", "Wi-Fi", "GigabitEthernet", or "Tunnel".
+Connection Type (string) → The type of network connection, e.g., "Wired", "Wireless", "VPN", "Mobile Data".
+Connection Speed (Mbps) (integer) → The current speed of the connection in Mbps.
+IP Address (string or null) → The assigned IP address.
+Subnet Mask (string or null) → The subnet mask assigned to the connection.
+Gateway IP Address (string or null) → The default gateway.
+DNS Server IP Address (array of strings or null) → List of DNS server IPs.
+Active VPN (boolean) → Indicates whether a VPN connection is active.
+VPN Type (string or null) → The type of VPN used, e.g., "IPSec", "OpenVPN", "WireGuard".
+VPN Server IP (string or null) → The IP address of the VPN server.
+Number of Hops (integer) → The number of network hops to reach the default gateway.
+Latency (ms) (integer) → The round-trip latency to the default gateway in milliseconds.
+Packet Loss Percentage (float) → The packet loss percentage detected during testing.
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T14:10:00.9901234Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9345678901,
+        "analysisName": "Connections Topology Information",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741354200990,
+        "eventDate": "2025-03-07T14:10:00.9901234Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "SSID": "Office_WiFi",
+            "BSSID": "12:34:56:78:9A:BC",
+            "Network Adapter Type": "Wi-Fi",
+            "Connection Type": "Wireless",
+            "Connection Speed (Mbps)": 150,
+            "IP Address": "192.168.1.105",
+            "Subnet Mask": "255.255.255.0",
+            "Gateway IP Address": "192.168.1.1",
+            "DNS Server IP Address": ["8.8.8.8", "8.8.4.4"],
+            "Active VPN": true,
+            "VPN Type": "OpenVPN",
+            "VPN Server IP": "203.0.113.5",
+            "Number of Hops": 5,
+            "Latency (ms)": 30,
+            "Packet Loss Percentage": 0.5
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T14:10:00.9901234Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+Structure for "Wi-Fi Scan Complete" contains:
+Scan Start Timestamp (integer) → The platform timestamp when the scan started.
+Scan Complete Timestamp (integer) → The platform timestamp when the scan completed.
+Scan Type (string) → The type of scan performed: "Full Scan", "Partial Scan", or "SSID Scan".
+Is Scan Aborted (boolean) → Indicates whether the scan was aborted.
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T11:29:25.0364748Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 2127336586,
+        "analysisName": "Wi-Fi Scan Complete",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741346965083,
+        "eventDate": "2025-03-07T11:29:25.0364748Z",
+        "headerValue": {
+            "Scan Start Timestamp": 133858213173716751,
+            "Scan Complete Timestamp": 133858213226332087,
+            "Scan Type": "Full Scan",
+            "Is Scan Aborted": false
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T11:29:25.0364748Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+Structure for "IP Disconnection" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+Network Adapter Type (string) → Can be "Unknown Adapter", "Ethernet", "Loopback", "Wi-Fi", "GigabitEthernet", or "Tunnel".
+
+Generated JSON Message:
+
+{
+    "device_id": 360,
+    "time": "2025-03-07T12:00:00.1234567Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 1456237890,
+        "analysisName": "IP Disconnection",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741349000123,
+        "eventDate": "2025-03-07T12:00:00.1234567Z",
+        "headerValue": {
+            "STA MAC Address": "12:34:56:78:9A:BC",
+            "Network Adapter Type": "Wi-Fi"
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T12:00:00.1234567Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+Structure for "Wi-Fi Missed Beacons" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+SSID (string) → The name of the connected Wi-Fi network.
+BSSID (string) → The MAC address of the access point.
+Missed Beacon Count (integer) → The number of consecutive beacons missed.
+RSSI Before Loss (integer) → The signal strength before beacons were missed.
+Channel (integer) → The Wi-Fi channel in use.
+Band (string) → The frequency band of the connection, e.g., "2.4GHz", "5GHz", "6GHz".
+Time Since Last Beacon (ms) (integer) → The duration in milliseconds since the last received beacon.
+
+Generated JSON Message:
+
+{
+    "device_id": 360,
+    "time": "2025-03-07T14:20:00.9912345Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9456789012,
+        "analysisName": "Wi-Fi Missed Beacons",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741354600991,
+        "eventDate": "2025-03-07T14:20:00.9912345Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "SSID": "Office_WiFi",
+            "BSSID": "12:34:56:78:9A:BC",
+            "Missed Beacon Count": 5,
+            "RSSI Before Loss": -72,
+            "Channel": 149,
+            "Band": "5GHz",
+            "Time Since Last Beacon (ms)": 2500
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T14:20:00.9912345Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "Wi-Fi Driver Properties Indication" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+Driver Property Name (string) → The name of the driver property being reported.
+Current Property Value (string) → The current value of the driver property.
+Expected Property Value (string or null) → The recommended or expected value of the property.
+Impact Description (string or null) → Description of how this property affects performance.
+Wi-Fi Driver Version (string) → The installed Wi-Fi driver version.
+
+Generated JSON Message:
+json
+CopyEdit
+{
+    "device_id": 360,
+    "time": "2025-03-07T14:30:00.9923456Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9567890123,
+        "analysisName": "Wi-Fi Driver Properties Indication",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741355000992,
+        "eventDate": "2025-03-07T14:30:00.9923456Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "Driver Property Name": "Roaming Aggressiveness",
+            "Current Property Value": "Medium",
+            "Expected Property Value": "High",
+            "Impact Description": "Setting Roaming Aggressiveness to 'High' can improve handover performance in weak signal areas.",
+            "Wi-Fi Driver Version": "22.190.0.4"
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T14:30:00.9923456Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "Wi-Fi No Coverage" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+SSID (string or null) → The name of the Wi-Fi network the device was connected to before losing coverage.
+BSSID (string or null) → The MAC address of the access point before losing coverage.
+Last Known RSSI (integer) → The last recorded signal strength before losing coverage.
+Last Known Channel (integer) → The Wi-Fi channel in use before coverage was lost.
+Last Known Band (string) → The frequency band before losing coverage, e.g., "2.4GHz", "5GHz", "6GHz".
+Time Since Last Connection (ms) (integer) → The duration in milliseconds since the last successful connection.
+
+Generated JSON Message:
+
+{
+    "device_id": 360,
+    "time": "2025-03-07T14:40:00.9934567Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9678901234,
+        "analysisName": "Wi-Fi No Coverage",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741355400993,
+        "eventDate": "2025-03-07T14:40:00.9934567Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "SSID": "Office_WiFi",
+            "BSSID": "12:34:56:78:9A:BC",
+            "Last Known RSSI": -88,
+            "Last Known Channel": 149,
+            "Last Known Band": "5GHz",
+            "Time Since Last Connection (ms)": 15000
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T14:40:00.9934567Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "Wi-Fi Successful Connection" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+SSID (string) → The name of the Wi-Fi network the device connected to.
+BSSID (string) → The MAC address of the access point.
+Connection Time (ms) (integer) → The time taken to establish the connection in milliseconds.
+Channel (integer) → The Wi-Fi channel the device is connected to.
+Band (string) → The frequency band of the connection, e.g., "2.4GHz", "5GHz", "6GHz".
+RSSI (integer) → The received signal strength indicator (RSSI) in dBm at the time of connection.
+Link Speed (Mbps) (integer) → The speed of the Wi-Fi link at the time of connection.
+Authentication Method (string) → The authentication method used, e.g., "WPA2-Personal", "WPA3-Enterprise".
+Is Roaming (boolean) → Indicates if the device roamed between APs before connection.
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T14:50:00.9945678Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9789012345,
+        "analysisName": "Wi-Fi Successful Connection",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741355800994,
+        "eventDate": "2025-03-07T14:50:00.9945678Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "SSID": "Office_WiFi",
+            "BSSID": "12:34:56:78:9A:BC",
+            "Connection Time (ms)": 230,
+            "Channel": 149,
+            "Band": "5GHz",
+            "RSSI": -65,
+            "Link Speed (Mbps)": 144,
+            "Authentication Method": "WPA3-Enterprise",
+            "Is Roaming": false
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T14:50:00.9945678Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "Wi-Fi Failed Connection" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+SSID (string) → The name of the Wi-Fi network the device attempted to connect to.
+BSSID (string) → The MAC address of the access point.
+Failure Reason (string) → The reason why the connection failed, e.g., "Authentication Failure", "Timeout", "Network Not Found".
+Attempted Authentication Method (string) → The authentication method used in the failed attempt, e.g., "WPA2-Personal", "WPA3-Enterprise".
+Signal Strength (RSSI) (integer) → The received signal strength indicator (RSSI) in dBm at the time of the failed connection.
+Channel (integer) → The Wi-Fi channel the device attempted to connect to.
+Band (string) → The frequency band of the connection attempt, e.g., "2.4GHz", "5GHz", "6GHz".
+Number of Retries (integer) → The number of retries attempted before failing.
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T15:00:00.9956789Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9890123456,
+        "analysisName": "Wi-Fi Failed Connection",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741356200995,
+        "eventDate": "2025-03-07T15:00:00.9956789Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "SSID": "Office_WiFi",
+            "BSSID": "12:34:56:78:9A:BC",
+            "Failure Reason": "Authentication Failure",
+            "Attempted Authentication Method": "WPA2-Personal",
+            "Signal Strength (RSSI)": -80,
+            "Channel": 149,
+            "Band": "5GHz",
+            "Number of Retries": 3
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T15:00:00.9956789Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "Wi-Fi Toggle State Indication" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+Previous State (string) → The state of the Wi-Fi adapter before toggling, e.g., "Enabled", "Disabled".
+New State (string) → The state of the Wi-Fi adapter after toggling, e.g., "Enabled", "Disabled".
+Toggle Reason (string) → The reason for the toggle, e.g., "User Action", "Power Management", "System Policy".
+Timestamp of State Change (string) → The exact time when the state change occurred.
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T15:10:00.9967890Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9901234567,
+        "analysisName": "Wi-Fi Toggle State Indication",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741356600996,
+        "eventDate": "2025-03-07T15:10:00.9967890Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "Previous State": "Enabled",
+            "New State": "Disabled",
+            "Toggle Reason": "User Action",
+            "Timestamp of State Change": "2025-03-07T15:10:00.9967890Z"
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T15:10:00.9967890Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "Wi-Fi Disconnected Antenna" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+SSID (string or null) → The name of the Wi-Fi network the device was connected to before the antenna issue.
+BSSID (string or null) → The MAC address of the access point before the issue occurred.
+Antenna Status (string) → The status of the Wi-Fi antenna, e.g., "Disconnected", "Partially Connected", "Reconnected".
+RSSI Before Issue (integer) → The last recorded signal strength before the antenna issue.
+Channel (integer) → The Wi-Fi channel in use before the issue.
+Band (string) → The frequency band before the issue, e.g., "2.4GHz", "5GHz", "6GHz".
+Time Since Last Stable Connection (ms) (integer) → The duration in milliseconds since the last stable Wi-Fi connection.
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T15:20:00.9978901Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9012345678,
+        "analysisName": "Wi-Fi Disconnected Antenna",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741357000997,
+        "eventDate": "2025-03-07T15:20:00.9978901Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "SSID": "Office_WiFi",
+            "BSSID": "12:34:56:78:9A:BC",
+            "Antenna Status": "Disconnected",
+            "RSSI Before Issue": -85,
+            "Channel": 149,
+            "Band": "5GHz",
+            "Time Since Last Stable Connection (ms)": 18000
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T15:20:00.9978901Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "Wi-Fi Device Short Period Statistics" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+SSID (string) → The name of the connected Wi-Fi network.
+BSSID (string) → The MAC address of the access point.
+Connection Duration (ms) (integer) → The total duration of the connection in milliseconds.
+Total Data Sent (MB) (float) → The total data sent in megabytes during the period.
+Total Data Received (MB) (float) → The total data received in megabytes during the period.
+Average RSSI (integer) → The average received signal strength indicator (RSSI) in dBm.
+Minimum RSSI (integer) → The lowest RSSI recorded during the period.
+Maximum RSSI (integer) → The highest RSSI recorded during the period.
+Channel Changes (integer) → The number of channel switches during the period.
+Roaming Events (integer) → The number of times the device roamed between APs.
+Packet Loss Percentage (float) → The percentage of packet loss detected during the connection period.
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T15:30:00.9989012Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9123456789,
+        "analysisName": "Wi-Fi Device Short Period Statistics",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741357400998,
+        "eventDate": "2025-03-07T15:30:00.9989012Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "SSID": "Office_WiFi",
+            "BSSID": "12:34:56:78:9A:BC",
+            "Connection Duration (ms)": 300000,
+            "Total Data Sent (MB)": 12.5,
+            "Total Data Received (MB)": 45.8,
+            "Average RSSI": -65,
+            "Minimum RSSI": -78,
+            "Maximum RSSI": -50,
+            "Channel Changes": 2,
+            "Roaming Events": 1,
+            "Packet Loss Percentage": 0.8
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T15:30:00.9989012Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "Wi-Fi Roaming Report" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+SSID (string) → The name of the connected Wi-Fi network.
+Previous BSSID (string) → The MAC address of the access point before roaming.
+New BSSID (string) → The MAC address of the access point after roaming.
+Roaming Reason (string) → The reason for roaming, e.g., "Weak Signal", "Load Balancing", "Interference".
+Previous RSSI (integer) → The signal strength before roaming.
+New RSSI (integer) → The signal strength after roaming.
+Roaming Duration (ms) (integer) → The time taken to complete the roaming event.
+Channel Change (boolean) → Indicates whether the roaming involved a channel switch.
+Previous Channel (integer or null) → The Wi-Fi channel before roaming.
+New Channel (integer or null) → The Wi-Fi channel after roaming.
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T15:40:00.9990123Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9234567890,
+        "analysisName": "Wi-Fi Roaming Report",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741357800999,
+        "eventDate": "2025-03-07T15:40:00.9990123Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "SSID": "Office_WiFi",
+            "Previous BSSID": "12:34:56:78:9A:BC",
+            "New BSSID": "23:45:67:89:AB:CD",
+            "Roaming Reason": "Weak Signal",
+            "Previous RSSI": -80,
+            "New RSSI": -65,
+            "Roaming Duration (ms)": 120,
+            "Channel Change": true,
+            "Previous Channel": 36,
+            "New Channel": 149
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T15:40:00.9990123Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "Wi-Fi Connection Statistics" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+SSID (string) → The name of the connected Wi-Fi network.
+BSSID (string) → The MAC address of the access point.
+Connection Duration (ms) (integer) → The total duration of the connection in milliseconds.
+Total Data Sent (MB) (float) → The total data sent in megabytes.
+Total Data Received (MB) (float) → The total data received in megabytes.
+Average RSSI (integer) → The average received signal strength indicator (RSSI) in dBm.
+Minimum RSSI (integer) → The lowest RSSI recorded.
+Maximum RSSI (integer) → The highest RSSI recorded.
+Total Packet Loss Percentage (float) → The percentage of total packet loss detected.
+Roaming Events (integer) → The number of times the device roamed between APs.
+Total Channel Switches (integer) → The number of times the device switched Wi-Fi channels.
+Disconnections Count (integer) → The total number of disconnections during the connection.
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T15:50:00.9991234Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9345678901,
+        "analysisName": "Wi-Fi Connection Statistics",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741358200999,
+        "eventDate": "2025-03-07T15:50:00.9991234Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "SSID": "Office_WiFi",
+            "BSSID": "12:34:56:78:9A:BC",
+            "Connection Duration (ms)": 600000,
+            "Total Data Sent (MB)": 18.3,
+            "Total Data Received (MB)": 72.6,
+            "Average RSSI": -67,
+            "Minimum RSSI": -80,
+            "Maximum RSSI": -55,
+            "Total Packet Loss Percentage": 1.5,
+            "Roaming Events": 3,
+            "Total Channel Switches": 2,
+            "Disconnections Count": 1
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T15:50:00.9991234Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "Wi-Fi Disconnection" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+SSID (string or null) → The name of the Wi-Fi network the device was connected to before disconnection.
+BSSID (string or null) → The MAC address of the access point before disconnection.
+Disconnection Reason (string) → The reason for disconnection, e.g., "User Initiated", "Signal Lost", "AP Requested", "Authentication Failure".
+RSSI Before Disconnection (integer) → The last recorded signal strength before disconnection.
+Channel Before Disconnection (integer) → The Wi-Fi channel before disconnection.
+Band Before Disconnection (string) → The frequency band before disconnection, e.g., "2.4GHz", "5GHz", "6GHz".
+Time Since Last Connection (ms) (integer) → The duration in milliseconds since the last successful connection.
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T16:00:01.0002345Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9456789012,
+        "analysisName": "Wi-Fi Disconnection",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741358601000,
+        "eventDate": "2025-03-07T16:00:01.0002345Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "SSID": "Office_WiFi",
+            "BSSID": "12:34:56:78:9A:BC",
+            "Disconnection Reason": "Signal Lost",
+            "RSSI Before Disconnection": -88,
+            "Channel Before Disconnection": 149,
+            "Band Before Disconnection": "5GHz",
+            "Time Since Last Connection (ms)": 25000
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T16:00:01.0002345Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "Wi-Fi Technology Gap" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+SSID (string) → The name of the connected Wi-Fi network.
+BSSID (string) → The MAC address of the access point.
+Device Wi-Fi Standard (string) → The Wi-Fi standard supported by the device, e.g., "Wi-Fi 5 (802.11ac)", "Wi-Fi 6 (802.11ax)", "Wi-Fi 6E".
+AP Wi-Fi Standard (string) → The Wi-Fi standard supported by the access point.
+Technology Gap Reason (string) → The reason why there is a technology gap, e.g., "Device Not Supporting Latest Standard", "AP Using Legacy Mode".
+Impact Description (string) → A brief description of the impact, e.g., "Reduced Network Performance", "Limited Features Available".
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T16:10:01.0013456Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9567890123,
+        "analysisName": "Wi-Fi Technology Gap",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741359001001,
+        "eventDate": "2025-03-07T16:10:01.0013456Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "SSID": "Office_WiFi",
+            "BSSID": "12:34:56:78:9A:BC",
+            "Device Wi-Fi Standard": "Wi-Fi 5 (802.11ac)",
+            "AP Wi-Fi Standard": "Wi-Fi 6 (802.11ax)",
+            "Technology Gap Reason": "Device Not Supporting Latest Standard",
+            "Impact Description": "Reduced Network Performance"
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T16:10:01.0013456Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "Wi-Fi Driver Availability Indication" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+Current Driver Version (string) → The currently installed Wi-Fi driver version.
+Latest Available Driver Version (string) → The latest driver version available for installation.
+Driver Availability Source (string) → The source providing the latest driver, e.g., "Windows Update", "Manufacturer Website".
+Update Recommendation (string) → Recommendation for updating, e.g., "Recommended", "Optional", "Critical".
+Impact of Outdated Driver (string or null) → Description of potential impact if the driver is not updated, e.g., "Security Risks", "Performance Degradation", "Bug Fixes".
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T16:20:01.0024567Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9678901234,
+        "analysisName": "Wi-Fi Driver Availability Indication",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741359401002,
+        "eventDate": "2025-03-07T16:20:01.0024567Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "Current Driver Version": "22.190.0.4",
+            "Latest Available Driver Version": "22.220.1.0",
+            "Driver Availability Source": "Windows Update",
+            "Update Recommendation": "Recommended",
+            "Impact of Outdated Driver": "Performance Degradation"
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T16:20:01.0024567Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "WLAN Service State Change Indication" contains:
+Previous State (string) → The state of the WLAN service before the change, e.g., "Running", "Stopped", "Paused".
+New State (string) → The state of the WLAN service after the change, e.g., "Running", "Stopped", "Paused".
+Change Reason (string) → The reason for the service state change, e.g., "User Request", "System Update", "Power Management", "Error".
+Time of Change (string) → The exact timestamp when the WLAN service state changed.
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T16:30:01.0035678Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9789012345,
+        "analysisName": "WLAN Service State Change Indication",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741359801003,
+        "eventDate": "2025-03-07T16:30:01.0035678Z",
+        "headerValue": {
+            "Previous State": "Running",
+            "New State": "Stopped",
+            "Change Reason": "System Update",
+            "Time of Change": "2025-03-07T16:30:01.0035678Z"
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T16:30:01.0035678Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "Wi-Fi Security Indication" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+SSID (string) → The name of the connected Wi-Fi network.
+BSSID (string) → The MAC address of the access point.
+Security Protocol (string) → The security protocol used, e.g., "WPA2-Personal", "WPA3-Enterprise", "Open".
+Encryption Type (string) → The encryption standard, e.g., "AES", "TKIP", "None".
+Security Risk Level (string) → The security assessment, e.g., "Secure", "Medium Risk", "High Risk".
+Security Issue Description (string or null) → A brief description of the security concern, if applicable, e.g., "Weak Encryption", "Open Network", "Deprecated Protocol".
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T16:40:01.0046789Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9890123456,
+        "analysisName": "Wi-Fi Security Indication",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741360201004,
+        "eventDate": "2025-03-07T16:40:01.0046789Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "SSID": "Office_WiFi",
+            "BSSID": "12:34:56:78:9A:BC",
+            "Security Protocol": "WPA2-Personal",
+            "Encryption Type": "AES",
+            "Security Risk Level": "Medium Risk",
+            "Security Issue Description": "Weak Encryption"
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T16:40:01.0046789Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structure for "Wi-Fi Device Statistics" contains:
+STA MAC Address (string) → Represents the MAC address of the device.
+SSID (string) → The name of the connected Wi-Fi network.
+BSSID (string) → The MAC address of the access point.
+Total Uptime (ms) (integer) → The total uptime of the Wi-Fi connection in milliseconds.
+Total Data Sent (MB) (float) → The total data sent in megabytes.
+Total Data Received (MB) (float) → The total data received in megabytes.
+Average RSSI (integer) → The average received signal strength indicator (RSSI) in dBm.
+Minimum RSSI (integer) → The lowest RSSI recorded.
+Maximum RSSI (integer) → The highest RSSI recorded.
+Total Roaming Events (integer) → The number of roaming events between access points.
+Total Disconnections (integer) → The number of disconnections recorded.
+Packet Loss Percentage (float) → The percentage of total packet loss detected.
+
+Generated JSON Message:
+{
+    "device_id": 360,
+    "time": "2025-03-07T16:50:01.0057890Z",
+    "make": "Intel",
+    "device_name": "HP ProBook 450 15.6 inch G10 Notebook PC",
+    "owner_id": 68272,
+    "event": {
+        "ID": 9901234567,
+        "analysisName": "Wi-Fi Device Statistics",
+        "deviceMac": "AC:19:8E:E8:C7:54",
+        "epochTime": 1741360601005,
+        "eventDate": "2025-03-07T16:50:01.0057890Z",
+        "headerValue": {
+            "STA MAC Address": "34:56:78:9A:BC:DE",
+            "SSID": "Office_WiFi",
+            "BSSID": "12:34:56:78:9A:BC",
+            "Total Uptime (ms)": 86400000,
+            "Total Data Sent (MB)": 250.3,
+            "Total Data Received (MB)": 1024.8,
+            "Average RSSI": -65,
+            "Minimum RSSI": -78,
+            "Maximum RSSI": -50,
+            "Total Roaming Events": 5,
+            "Total Disconnections": 3,
+            "Packet Loss Percentage": 0.5
+        },
+        "severity": "INFO",
+        "ssid": "Wifi",
+        "timeStamp": "2025-03-07T16:50:01.0057890Z",
+        "wifiMac": "28dee5bb0650"
+    }
+}
