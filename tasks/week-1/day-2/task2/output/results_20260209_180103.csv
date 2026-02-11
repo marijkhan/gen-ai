@@ -249,7 +249,7 @@ Let me know if you'd like me to add or modify anything!",True,,237,342,579,
 15. Cambridge (Location) - ""their new facility in Cambridge, UK""
 16. UK (Location) - ""their new facility in Cambridge, UK""
 17. MIT (Organization) - ""Prof. Robert Williams from MIT""
-18. Q2 2024 (Date) - ""The next phase of research will begin in Q2 2024""",True,,259,320,579,
+18. Q2 2024 (Date) - ""The next phase of research will begin in Q2 2024""",True,"for many entities model just lists the entity in quotes like ""boston"" instead of providing sentence or context in which it was used",259,320,579,
 6,hard,chain_of_thought,"I'll go through the text step by step to identify the entities.
 
 1. **Dr. Jane Smith**: This is a person entity, specifically a renowned neuroscientist. 
