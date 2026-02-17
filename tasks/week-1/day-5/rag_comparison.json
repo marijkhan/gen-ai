@@ -1,0 +1,385 @@
+{
+  "model": "hf.co/bartowski/Llama-3.2-1B-Instruct-GGUF",
+  "embedding_model": "hf.co/CompendiumLabs/bge-base-en-v1.5-gguf",
+  "timestamp": "2026-02-12T18:25:41.084021",
+  "notes": {
+    "rag": "Top 5 chunks retrieved from ChromaDB using bge-base-en-v1.5 embeddings",
+    "direct": "First 15,000 chars per PDF passed as context with num_ctx=8192"
+  },
+  "results": [
+    {
+      "id": 1,
+      "question": "What is the minimum age requirement to become the President of Pakistan as stated in the Constitution?",
+      "ground_truth": "45 years. Article 41, Clause (2)",
+      "rag_response": "According to the Constitutions of Pakistan and India, there is no specific minimum age requirement mentioned. Both constitutions state that a person shall not be qualified for election unless he is:\n\n*   A Muslim of not less than 45 years of age (Pakistan's Article 41(2))\n*   A citizen of Pakistan, not less than 40 years of age (Pakistan's Article 42(1))",
+      "direct_response": "According to Article 94 of the Constitution of Pakistan, a person must be at least 40 years old to run for the office of the President.",
+      "retrieved_chunks": [
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "41(2)",
+          "distance": 0.2002
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "44",
+          "distance": 0.2548
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "121_p2",
+          "distance": 0.2659
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "193_p1",
+          "distance": 0.2682
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "228(3)_p2",
+          "distance": 0.2751
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "How many articles are in the Constitution of India?",
+      "ground_truth": "395",
+      "rag_response": "There are 245 articles in the Constitution of India.",
+      "direct_response": "There are 395 articles in the Constitution of India. This number includes all amendments to the original constitution and additions made by subsequent amendments. The Constitution of India is a vast document with numerous provisions and amendments, making it difficult to provide an exact count.\n\nThe Indian Constitution was first drafted in 1947 by Dr. B.R. Ambedkar and B.J. Pherozeshah Mehta, and then revised and amended several times before its adoption on November 26, 1949.",
+      "retrieved_chunks": [
+        {
+          "source": "constitution_india.pdf",
+          "article_id": "393",
+          "distance": 0.2588
+        },
+        {
+          "source": "constitution_india.pdf",
+          "article_id": "105(2)_p2",
+          "distance": 0.2893
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "246_p3",
+          "distance": 0.2895
+        },
+        {
+          "source": "constitution_india.pdf",
+          "article_id": "362",
+          "distance": 0.2899
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "81_p3",
+          "distance": 0.2949
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "What language is specified as the national language of Pakistan?",
+      "ground_truth": "Urdu",
+      "rag_response": "According to the provided context, Urdu is specified as the national language of Pakistan. Specifically:\n\n* [constitution_pak.pdf, Article 251](1) states that the National language of Pakistan shall be Urdu.\n* [constitution_pak.pdf, Article 260_p12](2) says that Urdu shall not include \"public safety as such\".\n* [constitution_india.pdf, Article 343(2)] states that Hindi shall be the official language of the Union.",
+      "direct_response": "The official languages of Pakistan are Urdu and English. \n\nAccording to Article 351 of the Constitution of Pakistan (1992), Urdu will be the national language of Pakistan, along with English, for \"all matters of law relating to India.\" (Article 350) \n\nThis means that although English is also an official language and has been used as a medium of international communication and education since its adoption in the Constituent Assembly, Article 351 explicitly states that Urdu will be recognized as the national language.\n\nIn practice, this does not necessarily mean that Urdu will be universally spoken or used throughout Pakistan. Many Pakistanis speak both Urdu and English, but Urdu is still widely used in formal and official contexts.\n\nIt's worth noting that India also has two official languages: Hindi and Tamil (for the state of Tamil Nadu), as well as Telugu, Kannada, and Malayalam for other states.",
+      "retrieved_chunks": [
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "251",
+          "distance": 0.236
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "260_p12",
+          "distance": 0.3707
+        },
+        {
+          "source": "constitution_india.pdf",
+          "article_id": "343(2)",
+          "distance": 0.3715
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "49(3)_p1",
+          "distance": 0.3847
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "11",
+          "distance": 0.3932
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "What is the maximum term length of the Indian Lok Sabha?",
+      "ground_truth": "5 years",
+      "rag_response": "There is no specific limit mentioned in Article 84 of the Constitution of India regarding the maximum term length of the Lok Sabha. The article states that:\n\n\"(2) The House of the People, unless sooner dissolved, shall continue for two years from the date appointed for its first meeting and no longer.\"\n\nThis suggests that the Lok Sabha can last for a maximum period of two years, but there is no specific limit mentioned in Article 84 itself.",
+      "direct_response": "The question you asked is actually from the Constitution of Pakistan. According to Article 85 of the Constitution of Pakistan (which deals with the Lok Sabha), the maximum term length for a Lok Sabha member is three years.\n\nArticle 103 of the Constitution of India, which deals with the Lok Sabha, also allows for a maximum term of one year per member of the Lok Sabha.\n\nIt's worth noting that these two countries have different parliamentary structures and terms of office.",
+      "retrieved_chunks": [
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "1272_p5",
+          "distance": 0.3323
+        },
+        {
+          "source": "constitution_india.pdf",
+          "article_id": "83",
+          "distance": 0.3329
+        },
+        {
+          "source": "constitution_india.pdf",
+          "article_id": "334",
+          "distance": 0.3348
+        },
+        {
+          "source": "constitution_india.pdf",
+          "article_id": "243E(3)",
+          "distance": 0.3417
+        },
+        {
+          "source": "constitution_india.pdf",
+          "article_id": "243E(2)",
+          "distance": 0.3482
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "Which article of Pakistan's Constitution deals with the abolition of exploitation?",
+      "ground_truth": "Article 3",
+      "rag_response": "There is no specific article in Pakistan's Constitution that deals with the abolition of exploitation. However, Article 6 of Pakistan's Constitution (as mentioned earlier) regulates \"The Removal from Service (Special Provisions)\" and Article 11(2) prohibits forced labor.\n\nArticle 280 of Pakistan's Constitution (which is not provided here) may relate to social justice or equality, but it does not specifically deal with the abolition of exploitation.\n\nIt is worth noting that the Indian Constitution also includes provisions related to social welfare and equality, such as Article 14 (Protection Against Discrimination) and Article 17(3)(a), which prohibit forced labor.",
+      "direct_response": "There is no specific article in Pakistan's Constitution that deals directly with the abolition of exploitation. However, Article 8 of Pakistan's Constitution does address the principles and provisions set out in the Objectives Resolution reproduced in Annex.\n\nArticle 8 states:\n\n\"1. The State shall ensure the elimination of all forms of exploitation and the gradual fulfilment of the fundamental rights to be enjoyed by every citizen.\n2. No person shall be deprived of life or liberty save in accordance with law.\"\n\nThis article is often cited as a provision that deals with abolishing exploitation, but it's essential to note that this is not a specific article that explicitly addresses abolition.\n\nIn contrast, Article 6 of Pakistan's Constitution focuses on the principles and provisions set out in the Objectives Resolution reproduced in Annex.",
+      "retrieved_chunks": [
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "6",
+          "distance": 0.2569
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "23",
+          "distance": 0.2765
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "11(2)",
+          "distance": 0.2767
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "121_p2",
+          "distance": 0.2789
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "280_p5",
+          "distance": 0.283
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "question": "At what age does a Judge of the Supreme Court for both countries retire?",
+      "ground_truth": "65 years",
+      "rag_response": "According to the information provided, for Pakistan:\n\n* A Judge of the 3[Federal Constitutional Court or of the] Supreme Court or of a High Court may resign his office by writing under his hand addressed to the President.\n\nFor India, there is no specific mention of a retirement age for a Judge of the Supreme Court. However, according to Article 223(1) and (2), a Judge appointed after the Seventeenth Amendment Act in 2019 may retire at the age of sixty-five years or more, but this article does not specify the retirement age for judges before that amendment.\n\nIn Pakistan, it is mentioned that \"The Chief Justice of the Federal Constitutional Court on completion of his term of three years shall stand retired notwithstanding his age of superannuation.\" This suggests that a Judge's term may be up to 3 years, but it implies that they can retire at their own age without being considered for superannuation.",
+      "direct_response": "This question appears to be about Pakistan's Constitution, specifically regarding the retirement rules for judges of the Supreme Court. However, there is no information provided in the context you gave (the Constitutions of Pakistan and India). \n\nTherefore, I cannot provide a response based on this incorrect assumption.\n\nIf you could provide more context or clarify what specific question you are referring to about the retirement rules of judges from both countries' constitutions, I would be happy to try and assist further.",
+      "retrieved_chunks": [
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "175I",
+          "distance": 0.3065
+        },
+        {
+          "source": "constitution_india.pdf",
+          "article_id": "223(3)_p1",
+          "distance": 0.3193
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "206",
+          "distance": 0.3323
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "175C(3)",
+          "distance": 0.3367
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "2_p4",
+          "distance": 0.3386
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "question": "Who is the highest authority in each government?",
+      "ground_truth": "Prime minister",
+      "rag_response": "In Pakistan, according to Article 97 of the Constitution of Pakistan:\n\n* The Prime Minister is the head of government and holds the executive power.\n* A vote of no-confidence against the Prime Minister is required for his removal.\n\nIn India, according to Article 312(4) of the Constitution of India (not 2, as in your question):\n\n* The President is the highest authority in the country. They are advised by a Council of Ministers headed by the Prime Minister.\n* A vote of no-confidence against the Prime Minister is required for his removal.\n\nNote that the Indian government has a parliamentary system, where the Prime Minister serves as head of government but not head of state, and they are advised by the President who also serves as the head of state.",
+      "direct_response": "In Pakistan:\n\n* The highest authority is the President of India.\n* Pakistan shares a border with India, and as part of their bilateral relationship, both countries have a common president.\n\nHowever, if we consider the sovereignty of each country within its own territory, the answer would be:\n\n* In Pakistan, the Supreme Court of Pakistan serves as the highest authority.\n* The Chief Justice of Pakistan is the head of the judiciary in Pakistan.\n\nIn India, the Constitution outlines that the President has no authority to exercise power over the nation. Instead, the various branches of government are headed by different authorities, including:\n\n* The President\n* The Prime Minister (or Chancellor in some states)\n* The Chief Minister (or Governor) of a state\n\nThe Supreme Court is the highest court in India, and it serves as the final authority on matters related to the Constitution and the law.",
+      "retrieved_chunks": [
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "97",
+          "distance": 0.3527
+        },
+        {
+          "source": "constitution_india.pdf",
+          "article_id": "312(4)_p2",
+          "distance": 0.3558
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "preamble_p1",
+          "distance": 0.3624
+        },
+        {
+          "source": "constitution_india.pdf",
+          "article_id": "12",
+          "distance": 0.3626
+        },
+        {
+          "source": "constitution_india.pdf",
+          "article_id": "243W",
+          "distance": 0.3691
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Who wrote the preface for the constitution?",
+      "ground_truth": "Dr. Reeta Vasishta wrote the preface for the Indian constitution. Raja Naeem Akbar wrote the preface for the Pakistan constitution",
+      "rag_response": "The preface for the constitutions of Pakistan and India was written by Sir Syed Ahmed Khan in \"The Constitution of Pakistan\" [constitution_pak.pdf, Article 268(3)], however, I couldn't find any information that suggests he wrote a preface for the Indian Constitution. \n\nOn the other hand, the constitution of India has a separate preface written by Shri V.V. Giri, who was the first President of India, in \"The Constitution of India\" [constitution_india.pdf, Article 1].",
+      "direct_response": "The preface for the Constitution of Pakistan is attributed to President Muhammad Ali Jinnah. However, it was written by his close associates and supporters.\n\nIn 1973, just before India's independence from British rule, a group of Indian politicians and lawyers, who were friends with Jinnah, drafted the Constitution of Pakistan in collaboration with him. They later referred to this draft as the \"Prepared Draft\" or the \"Draft prepared by Mr. President\".\n\nLater, in 1974, after India's independence, the Constituent Assembly of Pakistan adopted the final version of the Constitution, which was then signed into law by President Yahya Khan.\n\nTherefore, while Jinnah is widely credited with the overall vision and direction of the Constitution, it was his associates and friends who wrote the preface to this document.",
+      "retrieved_chunks": [
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "268(3)",
+          "distance": 0.391
+        },
+        {
+          "source": "constitution_india.pdf",
+          "article_id": "393",
+          "distance": 0.392
+        },
+        {
+          "source": "constitution_india.pdf",
+          "article_id": "1",
+          "distance": 0.3926
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "203C(4)_p2",
+          "distance": 0.3982
+        },
+        {
+          "source": "constitution_india.pdf",
+          "article_id": "380",
+          "distance": 0.3987
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "question": "Which article covers the freedom of speech?",
+      "ground_truth": "Article 19",
+      "rag_response": "Only one article mentions freedom of speech:\n\n1. [constitution_india.pdf, Article 19(1)_p1]\n19. Protection of certain rights regarding freedom of speech, etc.—\n(1) All citizens shall have the right— \n(a) to freedom of speech and expression; \n(b) to assemble peaceably and without arms; \n(c) to form associations or unions 2[or co-operative societies]; \n(d) to move freely throughout the territory of India; \n\n(w.e.f. 14-1-2019).\n\nThere are no articles in [constitution_pak.pdf] that specifically mention freedom of speech.",
+      "direct_response": "The articles that cover the freedom of speech in India are:\n\n* Article 19(2): \"Right to Freedom\" which guarantees the right to life and liberty, including the right to express one's thoughts and opinions through speech, writing, or other means.\n* Section 325 of the Code of Criminal Procedure (CrPC), which empowers the police to investigate any matter related to criminal activity and prevent such person from exercising his freedom of expression.\n\nHowever, Article 19(1) itself does not explicitly guarantee freedom of speech.",
+      "retrieved_chunks": [
+        {
+          "source": "constitution_india.pdf",
+          "article_id": "19(1)_p1",
+          "distance": 0.3019
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "19",
+          "distance": 0.314
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "22(3)",
+          "distance": 0.3521
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "66(2)",
+          "distance": 0.3534
+        },
+        {
+          "source": "constitution_india.pdf",
+          "article_id": "105(2)_p1",
+          "distance": 0.3697
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "question": "How many amendments has there been in each constitution?",
+      "ground_truth": "Not explicitly stated",
+      "rag_response": "According to the provided context:\n\n* Pakistan's Constitution: There have been at least two amendments, one in 2025 (Article 203C(4)) and another likely but not specified in \"Subs. by P.O. No. 14 of 1985, Art.2 and Sch.\" which is said to be before the 1980 amendment order.\n* India's Constitution: There have been at least eight amendments since the adoption of the 1950 Constituent Assembly Amendment Act, and more recent ones include the 1977 Amendments (Article 1), 2003 Amendment (Article 17A), 2015 Amendment (Article 35C), 2016 Amendments (Article 370), 2020 Amendment (Article 75AA), 2022 Amendments (Article 342-A)",
+      "direct_response": "Here's a breakdown of the number of amendments made to each constitution:\n\n**Constitution of India:**\n\n* First Amendment (1947): 2\n\t+ The Indian Independence Act, 1947, which incorporated provisions of the United Nations Charter into the Constitution.\n\t+ The British India Act, 1935, which established the Dominion of India and the Dominion of Pakistan.\n* Second Amendment (1950): 1\n\t+ Added Article 48-A, which prohibits discrimination on grounds of caste, language, social class, religion, or place of birth.\n* Third Amendment (1973): 1\n\t+ Amended Article 370 to create a new state of Jammu and Kashmir.\n* Fourth Amendment (1980): 2\n\t+ Added Articles 351-354, which deal with citizenship law and the rights of citizens in relation to foreign citizenship.\n* Fifth Amendment (1997): 1\n\t+ Modified Article 340 to make it clear that the President can refer bills to both Houses of Parliament without consent.\n* Sixth Amendment (2002): 1\n\t+ Amended Article 370 to introduce the concept of the \"Republic of India\" and the creation of a new state of Andhra Pradesh.\n* Seventh Amendment (2015): 1\n\t+ Added a new article to deal with the issue of citizenship for persons of Indian origin residing outside India.\n* Eighth Amendment (2020): 3\n\t+ Amended Article 370 to introduce the concept of the \"Republic of India\" and the creation of two new states: Telangana and Andhra Pradesh.\n\t+ Introduced a new article on issues related to citizenship, including citizenship for persons of Indian origin residing outside India.\n\nTotal number of amendments made to the Constitution of India since its adoption in 1947 is 14.",
+      "retrieved_chunks": [
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "180_p2",
+          "distance": 0.2769
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "203C(4)_p2",
+          "distance": 0.2787
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "81_p3",
+          "distance": 0.2842
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "203C(4)_p5",
+          "distance": 0.2851
+        },
+        {
+          "source": "constitution_india.pdf",
+          "article_id": "1",
+          "distance": 0.2864
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "question": "What did the 1986 amendment in Pakistan constitution state?",
+      "ground_truth": "No such amendment exists",
+      "rag_response": "According to the context provided, there is no mention of a 1986 amendment in the Constitution of Pakistan.\n\nThe provided context only discusses the Fundamental Rights and other provisions related to the Constitution of Pakistan. \n\nArticle 49(6) states that \"A person shall not be compelled to be a witness against himself unless on a conviction of an offense punishable by imprisonment for a term exceeding one year.\"\n\nAlso, Article 233(1) states: \"State Governments shall take all necessary steps to safeguard the fundamental rights and freedoms of the citizens.\"\n\nArticle 280 provides that \"The Parliament shall have power to make laws for any purpose related to the fundamental rights of the citizens.\"",
+      "direct_response": "There is no \"Constitution of Pakistan\" that was adopted on April 12, 1973. The Constitution of Pakistan was actually adopted on February 14, 1956.\n\nHowever, I can tell you what the 1986 amendments made to the Constitution were for Pakistan.\n\nIn 1985 and 1986, a new set of amendments were made to the Constitution of Pakistan to address various issues such as human rights, democratic reforms, and economic development. The main provisions of these amendments included:\n\n* Amendments to Article 101 (the right to protection from arbitrary arrest) that prohibited detention without trial\n* Amendments to Article 102 (protection against forced disappearance) that ensured due process in detaining and interrogating suspects\n* Amendments to Article 104 (right to freedom of expression and information) to allow for greater transparency and access to public records\n* Amendments to Articles 107, 108, 112, and others related to the role of the judiciary and the legislative branches\n\nThese amendments were made by President Yahya Khan in 1985, with the help of the National Assembly. The amendments were approved on November 3, 1986.\n\nHere is a summary of the key provisions of these amendments:\n\n* Article 101 was amended to prohibit detention without trial for arbitrary reasons\n* Article 102 was amended to ensure due process in detaining and interrogating suspects\n* Article 104 was amended to allow for greater transparency and access to public records\n* Articles 107, 108, 112, and others were also modified or added\n\nThese amendments aimed to strengthen individual rights and freedoms while ensuring the stability of the government. However, some critics have argued that these changes undermined the principles of democracy and human rights.",
+      "retrieved_chunks": [
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "49(6)_p3",
+          "distance": 0.1897
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "233(1)_p4",
+          "distance": 0.2353
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "92(2)_p2",
+          "distance": 0.2584
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "121_p2",
+          "distance": 0.2654
+        },
+        {
+          "source": "constitution_pak.pdf",
+          "article_id": "280_p5",
+          "distance": 0.2681
+        }
+      ]
+    }
+  ]
+}
