@@ -22,13 +22,8 @@ REQUEST_HEADERS = {
 
 TRAVEL_URLS = [
     {"url": "https://www.lonelyplanet.com/germany/berlin/attractions",                "city": "berlin",    "category": "sightseeing", "price_level": "cheap"},
-    {"url": "https://www.timeout.com/berlin/restaurants/best-restaurants-in-berlin",  "city": "berlin",    "category": "food",        "price_level": "medium"},
-    {"url": "https://www.timeout.com/berlin/art/best-art-galleries-in-berlin",        "city": "berlin",    "category": "art",         "price_level": "cheap"},
     {"url": "https://www.lonelyplanet.com/france/paris/attractions",                  "city": "paris",     "category": "sightseeing", "price_level": "expensive"},
-    {"url": "https://www.timeout.com/paris/restaurants/best-restaurants-in-paris",    "city": "paris",     "category": "food",        "price_level": "expensive"},
     {"url": "https://www.lonelyplanet.com/spain/barcelona/attractions",               "city": "barcelona", "category": "sightseeing", "price_level": "medium"},
-    {"url": "https://www.timeout.com/barcelona/restaurants/best-restaurants-barcelona","city": "barcelona", "category": "food",        "price_level": "medium"},
     {"url": "https://www.lonelyplanet.com/japan/tokyo/attractions",                   "city": "tokyo",     "category": "sightseeing", "price_level": "medium"},
-    {"url": "https://www.timeout.com/tokyo/restaurants/best-restaurants-in-tokyo",    "city": "tokyo",     "category": "food",        "price_level": "medium"},
-    {"url": "https://www.timeout.com/tokyo/art/best-art-galleries-in-tokyo",          "city": "tokyo",     "category": "art",         "price_level": "cheap"},
+    {"url": "https://www.lonelyplanet.com/articles/chicago-day-trips",          "city": "chicago",     "category": "sightseeing",         "price_level": "cheap"},
 ]

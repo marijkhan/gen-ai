@@ -81,6 +81,10 @@ def judge_context(query: str, chunks: list[str], client: Groq | None = None) -> 
         "You are a context quality judge for a travel recommendation system.\n"
         "Given a user query and retrieved context chunks, decide if the context "
         "contains enough relevant information to give a helpful answer.\n"
+        "Be lenient: if the context mentions places, activities, or tips that are "
+        "related to the query's city or region (including nearby areas and day trips), "
+        "consider it sufficient. Only mark as insufficient if the context is completely "
+        "unrelated to what the user is asking about.\n"
         'Reply with ONLY one of: "context_good" or "context_insufficient".\n'
         "No explanation, just the label."
     )
@@ -131,7 +135,7 @@ def generate_answer(
     system_prompt = (
         "You are an expert travel advisor. Using ONLY the provided context, "
         "give a helpful, specific travel recommendation that matches the user's preferences.\n"
-        "- Cite sources using [Source N] inline.\n"
+        "- Do NOT use inline citations like [Source N] in the answer body.\n"
         "- At the end, list the source URLs under a 'Sources:' section.\n"
         "- Be concise but informative (aim for 200-350 words).\n"
         "- If the context doesn't cover something, say so honestly rather than inventing details."

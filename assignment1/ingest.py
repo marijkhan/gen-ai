@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 
 from config import CHUNK_OVERLAP, CHUNK_SIZE, FAISS_INDEX_DIR, REQUEST_HEADERS, TRAVEL_URLS
 from embedder import embed_texts
+from chonkie import RecursiveChunker
 
 logger = logging.getLogger(__name__)
 
@@ -38,44 +39,16 @@ def clean_html(html: str) -> str:
             parts.append(text)
     return "\n\n".join(parts)
 
-
-def chunk_text(text: str, chunk_size: int = CHUNK_SIZE, overlap: int = CHUNK_OVERLAP) -> list[str]:
+def chunk_text(text: str) -> list[str]:
     """Split text into overlapping chunks, preferring paragraph boundaries."""
-    paragraphs = [p.strip() for p in text.split("\n\n") if p.strip()]
-    chunks = []
-    current = ""
-
-    for para in paragraphs:
-        if len(current) + len(para) + 2 <= chunk_size:
-            current = (current + "\n\n" + para).strip() if current else para
-        else:
-            if current:
-                chunks.append(current)
-            # If a single paragraph exceeds chunk_size, split it by characters
-            if len(para) > chunk_size:
-                for i in range(0, len(para), chunk_size - overlap):
-                    segment = para[i: i + chunk_size]
-                    if segment:
-                        chunks.append(segment)
-                current = ""
-            else:
-                # Start new chunk with overlap from end of previous
-                if chunks:
-                    overlap_text = chunks[-1][-overlap:] if len(chunks[-1]) > overlap else chunks[-1]
-                    current = (overlap_text + " " + para).strip()
-                else:
-                    current = para
-
-    if current:
-        chunks.append(current)
-
-    return [c for c in chunks if len(c) >= 50]
+    chunker = RecursiveChunker()
+    chunks = chunker(text)
+    return [chunk.text for chunk in chunks]
+    
 
 
 def build_index(
-    urls: list[dict] = TRAVEL_URLS,
-    chunk_size: int = CHUNK_SIZE,
-    overlap: int = CHUNK_OVERLAP,
+    urls: list[dict] = TRAVEL_URLS
 ):
     """Fetch, clean, chunk, embed all URLs and build a FAISS IndexFlatIP."""
     all_chunks = []
@@ -89,12 +62,16 @@ def build_index(
             logger.warning(f"Skipping {url}: empty response")
             continue
 
+        logger.info(f"\nRaw content: \n{html} \n\n")
+        
         text = clean_html(html)
         if len(text) < MIN_TEXT_LENGTH:
             logger.warning(f"Skipping {url}: insufficient text ({len(text)} chars)")
             continue
 
-        chunks = chunk_text(text, chunk_size, overlap)
+        logger.info(f"\nCleaned content: \n{text} \n\n")
+
+        chunks = chunk_text(text)
         logger.info(f"  → {len(chunks)} chunks from {url}")
 
         for chunk in chunks:

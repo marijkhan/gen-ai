@@ -71,11 +71,9 @@ def run_pipeline(query: str, index: faiss.Index, metadata: list[dict]) -> dict:
     logger.info(f"  Verdict: {verdict}")
 
     if verdict == "context_insufficient":
-        # Relax filters to city-only and retry
-        logger.info("  Context insufficient. Relaxing filters to city-only...")
-        city = preferences.get("city")
-        relaxed = [c for c in candidates if not city or c.get("city", "").lower() == (city or "").lower()]
-        reranked_relaxed = score_rerank(relaxed if relaxed else candidates, preferences)[:TOP_K_RERANK]
+        # Relax filters: try all candidates (drop all metadata filters) and retry
+        logger.info("  Context insufficient. Relaxing to all candidates (no filters)...")
+        reranked_relaxed = score_rerank(candidates, preferences)[:TOP_K_RERANK]
         chunk_texts_relaxed = [c["text"] for c in reranked_relaxed]
 
         verdict2 = judge_context(query, chunk_texts_relaxed)
