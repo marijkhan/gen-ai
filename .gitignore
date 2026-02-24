@@ -1,3 +1,9 @@
 .env
 .vscode/
-.claude/settings.local.json
+*.bin
+.claude/
+assignment1/data/*
+assignment1/__pycache__/*
+tasks/week-2/day-1/storage/*
+*.exe
+tasks/week-1/day-5/storage/*
