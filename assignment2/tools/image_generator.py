@@ -1,10 +1,11 @@
 import io
 import base64
 from huggingface_hub import InferenceClient
+from config import HF_TOKEN
 
 _client = InferenceClient(
     provider="nscale",
-    api_key="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",
+    api_key=HF_TOKEN,
 )
 
 
