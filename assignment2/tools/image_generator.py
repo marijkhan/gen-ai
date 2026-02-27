@@ -1,11 +1,15 @@
+import io
 import base64
-import requests
+from huggingface_hub import InferenceClient
 
-HF_MODEL_URL = "https://router.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0"
+_client = InferenceClient(
+    provider="nscale",
+    api_key="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",
+)
 
 
 def generate_image(topic: str) -> tuple[str | None, str | None]:
-    """Generate a professional LinkedIn banner image using Stable Diffusion XL via HuggingFace Inference API.
+    """Generate a professional LinkedIn banner image using Stable Diffusion XL via HuggingFace Inference Client.
 
     Returns (base64_str, error). One of them will be None.
     """
@@ -15,15 +19,14 @@ def generate_image(topic: str) -> tuple[str | None, str | None]:
         f"No text, no words, no letters in the image. Suitable as a LinkedIn post header."
     )
     try:
-        response = requests.post(
-            HF_MODEL_URL,
-            json={"inputs": prompt},
-            timeout=120,
+        image = _client.text_to_image(
+            prompt,
+            model="stabilityai/stable-diffusion-xl-base-1.0",
         )
-        if response.status_code == 200:
-            image_bytes = response.content
-            return base64.b64encode(image_bytes).decode("utf-8"), None
-        else:
-            return None, f"HuggingFace API error {response.status_code}: {response.text}"
+        # image is a PIL.Image object — convert to base64
+        buffer = io.BytesIO()
+        image.save(buffer, format="PNG")
+        img_b64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
+        return img_b64, None
     except Exception as e:
         return None, str(e)

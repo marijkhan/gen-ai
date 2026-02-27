@@ -10,7 +10,8 @@ _search_tool = TavilySearch(max_results=5)
 def search_web(query: str) -> str:
     """Search the web for recent content on a topic. Returns formatted results."""
     try:
-        results = _search_tool.invoke(query)
+        raw = _search_tool.invoke(query)
+        results = raw.get("results", []) if isinstance(raw, dict) else raw
         if not results:
             return "No results found."
 
