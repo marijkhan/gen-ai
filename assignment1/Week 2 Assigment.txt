@@ -1,0 +1,95 @@
+﻿Assignment 2
+   Preference-Aware Travel RAG Assistant
+Objective
+Build a small but complete RAG system that answers travel questions (e.g., “3-day Berlin trip with cheap food and art”) using web content, preferences, and retrieval-grounded answers.
+The goal is to demonstrate end-to-end RAG thinking, not to build a perfect product.
+Hard Requirements
+* Use Groq for all LLM calls (query understanding, judging, answer generation).
+
+* Use one open-source embedding model (justify choice briefly).
+
+* Use any vector DB except Chroma (FAISS / Qdrant / Weaviate / Milvus).
+
+* Build a minimal UI (Streamlit or similar).
+
+* System must clearly show:
+query → retrieval → reasoning → answer
+
+Core Capabilities
+1. Source Ingestion
+   * Start from a small fixed list of travel URLs (5–10 is enough).
+
+   * Fetch and clean text.
+
+   * Chunk the text using one simple strategy (paragraph or fixed size).
+
+   * Attach minimal metadata:
+
+      * url
+
+      * city
+
+      * category (food / art / sightseeing)
+
+      * price_level (cheap / medium / expensive)
+
+2. Preference Extraction
+         * Extract preferences from the user query (budget, interests, city).
+
+         * Use simple rules or one LLM call.
+
+         * Output preferences as a small JSON object.
+
+3. Retrieval + Re-ranking
+            * Use semantic search via your vector DB.
+
+            * Apply basic metadata filtering (city, category, price).
+
+            * Add one re-ranking step (LLM judge or simple scoring).
+
+4. Context Quality Check (Lightweight Judge)
+               * Before answering, decide:
+
+                  * context_good or context_insufficient
+
+                     * If insufficient:
+
+                        * either refuse,
+
+                        * or relax filters and retry once.
+
+5. Answer Generation
+                           * Use Groq to generate the final answer using:
+
+                              * user query
+
+                              * retrieved chunks
+
+                                 * Prefer grounded answers (light citations encouraged, not mandatory).
+
+UI Requirements (Minimal)
+Your UI must show:
+                                    * user query input
+
+                                    * final answer
+
+                                    * debug panel showing:
+
+                                       * URLs used
+
+                                       * top retrieved chunks
+
+                                       * extracted preferences
+
+Deliverables (End of Day)
+                                          1. Working code in a GitHub repo
+
+                                          2. Simple architecture diagram (even a hand-drawn one is fine)
+
+                                          3. Short README explaining:
+
+                                             * embedding choice
+
+                                             * vector DB choice
+
+                                             * one failure case you observed
